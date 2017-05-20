@@ -3,19 +3,29 @@
 
 <dom-module id="hola-codigofacilito">
 
-  <template>
-    <style>
-      :host{
-        background-color: red;
-        display: block;
-      }
-    </style>
-    <!-- HTML Templates -->
-    <h1>Hola Mundo</h1>
-  </template>
-  <script>
-    Polymer({
-      is: "hola-codigofacilito"
-    })
-  </script>
+    <template>
+        <style>
+            :host {
+                background-color: red;
+                display: block;
+            }
+        </style>
+        <!-- HTML Templates -->
+        <h1>Hola [[name]], tienes [[edad]] años.</h1>
+    </template>
+    <script>
+        Polymer({
+            is: "hola-codigofacilito",
+            properties: {
+                name: {
+                    type: String,
+                    value: "Default"
+                },
+                edad:{
+                    type: Number,
+                    value: 0
+                }
+            }
+        })
+    </script>
 </dom-module>
