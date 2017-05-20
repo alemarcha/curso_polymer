@@ -1,5 +1,7 @@
 <!-- HTML IMPORT -->
 <link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="./nombre-codigofacilito.html">
+
 
 
 <dom-module id="hola-codigofacilito">
@@ -14,7 +16,9 @@
         <paper-input label="One way binding" value="[[name]]"></paper-input>
 
         <!-- HTML Templates -->
-        <h1 id="titulo">Hola [[name]], tienes [[edad]] años.</h1>
+        <h1 id="titulo">Hola <nombre-codigofacilito name="{{name}}"></nombre-codigofacilito>, tienes [[edad]] años.</h1>
+        <!--<h1 id="titulo">Hola <nombre-codigofacilito name="[[name]]"></nombre-codigofacilito>, tienes [[edad]] años.</h1>-->
+
     </template>
     <script>
         Polymer({
@@ -38,9 +42,7 @@
                 console.log(this)
                 console.log(this.$)
                 console.log ("Ready: " + this.$.titulo)
-                setTimeout(()=>{
-                    this.name="Uno nuevo"
-                },3000)
+
             },
             attached: function(){
                 console.log("Attached")
