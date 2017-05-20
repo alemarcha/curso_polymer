@@ -1,0 +1,71 @@
+<!-- HTML IMPORT -->
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="./nombre-codigofacilito.html">
+
+
+
+<dom-module id="hola-codigofacilito-1">
+
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      paper-button{
+        background-color: var(--paper-red-500);
+      }
+    </style>
+    <!--<paper-button raised on-click="clicked">Click con evento</paper-button>-->
+    <paper-button raised >Click con listener</paper-button>
+    <!-- HTML Templates -->
+    <h1 id="titulo">Hola <nombre-codigofacilito name="{{name}}"></nombre-codigofacilito>, tienes [[edad]] años.</h1>
+    <!--<h1 id="titulo">Hola <nombre-codigofacilito name="[[name]]"></nombre-codigofacilito>, tienes [[edad]] años.</h1>-->
+
+  </template>
+  <script>
+    Polymer({
+      is: "hola-codigofacilito-1",
+      properties: {
+        name: {
+          type: String,
+          value: "Default"
+        },
+        edad:{
+          type: Number,
+          value: 0
+        }
+      },
+
+      created: function(){
+
+        console.log ("Created: Se ejecutra antes de ready")
+      },
+      listeners:{
+        "namechanged":"clicked",
+        "click":"clicked"
+      },
+      ready: function(){
+        console.log(this)
+        console.log(this.$)
+        console.log ("Ready: " + this.$.titulo)
+        //this.$$("paper-button").addEventListener("click",()=>{this.clicked()})
+      //  this.$$("nombre-codigofacilito").addEventListener("namechanged",()=>{this.clicked()})
+
+
+      },
+      attached: function(){
+        console.log("Attached")
+      },
+      detached: function(){
+        console.log("Detached")
+      },
+      attributeChanged: function(){
+        console.log("attributeChanged")
+      },
+      clicked: function(e){
+        console.log(e.target)
+        this.name="Hubo click"
+      }
+    })
+  </script>
+</dom-module>
