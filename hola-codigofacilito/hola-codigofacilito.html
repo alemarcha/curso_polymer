@@ -1,37 +1,21 @@
-<link rel="import" href="../polymer/polymer-element.html">
+<!-- HTML IMPORT -->
+<link rel="import" href="../polymer/polymer.html">
 
 <dom-module id="hola-codigofacilito">
+
   <template>
     <style>
-      :host {
+      :host{
+        background-color: red;
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
-    <slot></slot>
+    <!-- HTML Templates -->
+    <h1>Hola Mundo</h1>
   </template>
-
   <script>
-    /**
-     * `hola-codigofacilito`d
-     * 
-     *
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
-    class HolaCodigofacilito extends Polymer.Element {
-      static get is() { return 'hola-codigofacilito'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'World'
-          }
-        };
-      }
-    }
-
-    window.customElements.define(HolaCodigofacilito.is, HolaCodigofacilito);
+    Polymer({
+      is: "hola-codigofacilito"
+    })
   </script>
 </dom-module>
