@@ -1,0 +1,37 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="hola-codigofacilito">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+    <slot></slot>
+  </template>
+
+  <script>
+    /**
+     * `hola-codigofacilito`d
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class HolaCodigofacilito extends Polymer.Element {
+      static get is() { return 'hola-codigofacilito'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'World'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(HolaCodigofacilito.is, HolaCodigofacilito);
+  </script>
+</dom-module>
