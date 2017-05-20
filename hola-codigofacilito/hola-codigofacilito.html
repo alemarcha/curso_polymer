@@ -11,7 +11,7 @@
             }
         </style>
         <!-- HTML Templates -->
-        <h1>Hola [[name]], tienes [[edad]] años.</h1>
+        <h1 id="titulo">Hola [[name]], tienes [[edad]] años.</h1>
     </template>
     <script>
         Polymer({
@@ -25,6 +25,26 @@
                     type: Number,
                     value: 0
                 }
+            },
+
+            created: function(){
+
+                console.log ("Created: Se ejecutra antes de ready")
+            },
+            ready: function(){
+                console.log(this)
+                console.log(this.$)
+                console.log ("Ready: " + this.$.titulo)
+
+            },
+            attached: function(){
+                console.log("Attached")
+            },
+            detached: function(){
+                console.log("Detached")
+            },
+            attributeChanged: function(){
+                console.log("attributeChanged")
             }
         })
     </script>
