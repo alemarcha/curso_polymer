@@ -1,15 +1,18 @@
 <!-- HTML IMPORT -->
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-input/paper-input.html">
+
 
 <dom-module id="hola-codigofacilito">
 
     <template>
         <style>
             :host {
-                background-color: red;
                 display: block;
             }
         </style>
+        <paper-input label="Double way binding" value="{{name}}"></paper-input>
+        <paper-input label="One way binding" value="[[name]]"></paper-input>
+
         <!-- HTML Templates -->
         <h1 id="titulo">Hola [[name]], tienes [[edad]] años.</h1>
     </template>
@@ -35,7 +38,9 @@
                 console.log(this)
                 console.log(this.$)
                 console.log ("Ready: " + this.$.titulo)
-
+                setTimeout(()=>{
+                    this.name="Uno nuevo"
+                },3000)
             },
             attached: function(){
                 console.log("Attached")
