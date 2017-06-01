@@ -1,0 +1,47 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../impressive-elements/impressive-form.html">
+<link rel="import" href="../impressive-elements/impressive-collection.html">
+<link rel="import" href="../../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
+
+
+
+
+<dom-module id="impressive-app">
+    <style include="iron-flex iron-flex-alignment">
+        :host{
+            display:block;
+        }
+        .iron-flex{
+            width: 50%;
+            margin-right: 1em;
+        }
+    </style>
+    <template>
+        <app-localstorage-document key="impressive.collection" data="{{collection}}"></app-localstorage-document>
+
+        <div class="layout horizontal">
+            <impressive-collection class="iron-flex" collection="{{collection}}"></impressive-collection>
+            <impressive-form class="iron-flex" collection="{{collection}}"></impressive-form>
+
+        </div>
+
+    </template>
+
+    <script>
+        Polymer({
+            is: "impressive-app",
+            properties:{
+                collection:{
+                    type: Array,
+                    value: function(){return[]}
+                }
+            },
+            observers: ["_collectionChange(collection.*)"],
+            _collectionChange: function(){
+                console.log("Desde el observador del host: ")
+                console.log(this.collection)
+            }
+        })
+    </script>
+</dom-module>
